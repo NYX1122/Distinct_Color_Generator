@@ -1,5 +1,7 @@
 import iwanthue from 'iwanthue';
 
+import colorDisplayer from 'color_displayer';
+
 export default async function (colorAmount, colorOptions = null) {
   if (!colorOptions) {
     const colors = iwanthue(colorAmount, {
@@ -9,6 +11,8 @@ export default async function (colorAmount, colorOptions = null) {
       clustering: 'force-vector',
       seed: 1,
     });
+    console.log('Generated colors: ');
+    colorDisplayer(colors);
     return colors;
   } else {
     const colors = iwanthue(colorAmount, colorOptions);
